@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>Копирование элемента и текста (+ copyright)</h3>
+  <div>
+    <p class="text">Этот текст будет скопирован</p>
+    <p>Дополнительный текст</p>
+  </div>
+  
+  <button id="copy">Копировать текст</button>
+  <button id="copy-copyright">Копировать + copyright</button>
+  <button id="copy-node">Копировать блок</button>
+
+  <script src="./../javascript/vanilla/vanilla.js"></script>
+
+  <script>
+    const text = document.querySelector('.text')
+
+    document.querySelector('#copy').addEventListener('click', () => {
+      if(copy(text.textContent, 'text')){
+        alert('Скопировано')
+      }
+    })
+
+    document.querySelector('#copy-copyright').addEventListener('click', () => {
+      if(copy(text.textContent, 'text', '@copyright')){
+        alert('Скопировано')
+      }
+    })
+
+    document.querySelector('#copy-node').addEventListener('click', () => {
+      if(copy('div')){
+        alert('Скопировано')
+      }
+    })
+  </script>
+</body>
+</html>
