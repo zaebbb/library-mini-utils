@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="time" id="start">
+    <input type="time" id="end">
+    <button id="btn">Расчитать</button>
+
+    <h2>В часах: <span id="time">00:00</span></h2>
+    <h3>В дроби: <span id="decimal">0</span></h3>
+
+    <script src="./../javascript/vanilla/vanilla.js"></script>
+
+    <script>
+        document.querySelector("#btn").addEventListener('click', () => {
+          const startTime = document.querySelector("#start").value
+          const endTime = document.querySelector("#end").value
+
+          const time = document.querySelector("#time")
+          const decimal = document.querySelector("#decimal")
+
+          const result = formatterTime(startTime, endTime)
+
+          time.textContent = result.time
+          decimal.textContent = result.decimal
+        })
+    </script>
+</body>
+</html>
